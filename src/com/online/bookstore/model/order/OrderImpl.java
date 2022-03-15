@@ -3,6 +3,7 @@ package com.online.bookstore.model.order;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.online.bookstore.model.payment.Payment;
 
 public class OrderImpl implements Order {
 	private String orderId;
@@ -38,11 +39,11 @@ public class OrderImpl implements Order {
 	}
 	
 	public boolean getPaymentStatus() {
-		return isPaymentReceived();
+		return payment.isPaymentReceived();
 	}
 	
 	public void setPaymentStatus(boolean paymentReceived) {
-		setPaymentReceived(paymentReceived);
+		this.payment.setPaymentReceived(paymentReceived);
 	}
 	
 	public void addProduct(OrderDetail orderDetail) {

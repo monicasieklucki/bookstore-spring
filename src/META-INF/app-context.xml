@@ -22,14 +22,14 @@
 
 	<bean id="order" class="com.online.bookstore.model.order.OrderImpl" scope="prototype">	
 		<property name="orderDetails">
-			<list/>
+			<list></list>
         	<!-- 
          	<list>
              	<ref bean="orderDetail" />
             </list>
             -->
          </property>
-		<property name="payment"></property>
+		<property name="payment" ref="payment"></property>
 	</bean>
 	
 	<bean id="customer" class="com.online.bookstore.model.customer.CustomerImpl" scope="prototype">
