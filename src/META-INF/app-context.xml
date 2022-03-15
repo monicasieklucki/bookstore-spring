@@ -29,6 +29,7 @@
             </list>
             -->
          </property>
+		<property name="payment"></property>
 	</bean>
 	
 	<bean id="customer" class="com.online.bookstore.model.customer.CustomerImpl" scope="prototype">

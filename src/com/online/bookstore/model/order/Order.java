@@ -2,8 +2,6 @@ package com.online.bookstore.model.order;
 
 import java.util.List;
 
-import com.online.bookstore.model.payment.Payment;
-
 public interface Order {
 	public String getOrderId();
 	public void setOrderId(String orderId);
@@ -11,8 +9,8 @@ public interface Order {
 	public void setOrderDetails(List<OrderDetail> orderDetails);
 	public void setOrderState(String orderState);
 	public String getOrderState();
-	public boolean getPaymentStatus(Payment payment);
-	public void setPaymentStatus(Payment payment, boolean paymentReceived);
+	public boolean getPaymentStatus();
+	public void setPaymentStatus(boolean paymentReceived);
 	public void addProduct(OrderDetail orderDetail);
 	public void cancelOrder();
 	public void confirmOrder();

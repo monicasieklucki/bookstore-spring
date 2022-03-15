@@ -42,14 +42,6 @@ public class BookStoreClient {
 	        billingAddress.setZip("66610");	   
 	        
 	        System.out.print("TEST");
-
-	        /**********************************************************************/
-	        //Bootstrapping the Payment instantiation using factory
-	        Payment payment = (Payment) context.getBean("payment");
-	        System.out.print("Payment status on initiation ");
-	        payment.setPaymentReceived(false);
-	        System.out.println(payment.isPaymentReceived());
-
 	        
 	        /**********************************************************************/
 	        //Bootstrapping the Order instantiation using factory
@@ -108,7 +100,7 @@ public class BookStoreClient {
 	        	System.out.println("\n\t" +"+++++++++++++++++++++++++++++++++");
 	        	System.out.println("\tOrder Id: \t\t" + order.getOrderId() + "\n");
 	        	System.out.println("\tOrder status: \t\t" + order.getOrderState() + "\n");
-	        	System.out.println("\tOrder payment: \t\t" + order.getPaymentStatus(payment));
+	        	System.out.println("\tOrder payment: \t\t" + order.getPaymentStatus());
 
 	        	System.out.println("\tOrder Items: ");
 	        	List<OrderDetail> orderLines = order.getOrderDetails();
