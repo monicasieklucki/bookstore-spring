@@ -1,6 +1,5 @@
 package com.online.bookstore.model.order;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.online.bookstore.model.payment.Payment;
@@ -10,7 +9,7 @@ public class OrderImpl implements Order {
 	private List<OrderDetail> orderDetails;
 	private String orderState = "Open";
 	private Payment payment;
-	
+
 	public OrderImpl() {}
 	
 	public String getOrderId() {
@@ -28,22 +27,23 @@ public class OrderImpl implements Order {
 	public void setOrderDetails(List<OrderDetail> orderDetails) {
 		this.orderDetails = orderDetails;
 	}
+	
+	
+	public Payment getPayment() {
+		return payment;
+	}
 
 	
+	public void setPayment(Payment payment) {
+		this.payment = payment;
+	}
+
 	public void setOrderState(String orderState) {
 		this.orderState = orderState;
 	}
 	
 	public String getOrderState() {
 		return orderState;
-	}
-	
-	public boolean getPaymentStatus() {
-		return payment.isPaymentReceived();
-	}
-	
-	public void setPaymentStatus(boolean paymentReceived) {
-		this.payment.setPaymentReceived(paymentReceived);
 	}
 	
 	public void addProduct(OrderDetail orderDetail) {
@@ -89,7 +89,7 @@ public class OrderImpl implements Order {
 	}
 	
 	public void orderSendOut() {
-		if (orderState.equals("Ordered") && payment.isPaymentReceived()) {
+		if (orderState.equals("Ordered") && payment.getPaymentReceived()) {
 			orderState = "Shipped";
 		} else {
 			throw new IllegalStateException("Cannot send out in this state.");
@@ -110,5 +110,7 @@ public class OrderImpl implements Order {
 		}
 		return total;
 	}
+
+
 
 }

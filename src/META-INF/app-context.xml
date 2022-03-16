@@ -20,17 +20,11 @@
 		</property>
 	</bean>
 
-	<bean id="order" class="com.online.bookstore.model.order.OrderImpl" scope="prototype">	
+	<bean id="payment" class="com.online.bookstore.model.payment.PaymentImpl" scope="prototype"></bean><bean id="order" class="com.online.bookstore.model.order.OrderImpl" scope="prototype">
 		<property name="orderDetails">
-			<list></list>
-        	<!-- 
-         	<list>
-             	<ref bean="orderDetail" />
-            </list>
-            -->
-         </property>
+			<list></list></property>
 		<property name="payment" ref="payment"></property>
-	</bean>
+</bean>
 	
 	<bean id="customer" class="com.online.bookstore.model.customer.CustomerImpl" scope="prototype">
 		<property name="billingAddress" ref="billingAddress" />
@@ -49,7 +43,6 @@
 	<bean id="customerService" class="com.online.bookstore.model.service.CustomerService" scope="prototype">
 		<property name="customer" ref="customer" />
 	</bean>
-	<bean id="payment" class="com.online.bookstore.model.payment.PaymentImpl" scope="prototype">
-		<property name="paymentReceived" value="false"></property></bean>
+	
 
 </beans>

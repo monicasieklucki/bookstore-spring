@@ -1,11 +1,12 @@
 package com.online.bookstore.model.payment;
 
-public class PaymentImpl implements Payment{
+public class PaymentImpl implements Payment {
 	
-	private boolean paymentReceived = false;
+	private boolean paymentReceived;
 	
+	public PaymentImpl() {}
 	
-	public boolean isPaymentReceived() {
+	public boolean getPaymentReceived() {
 		return paymentReceived;
 	}
 

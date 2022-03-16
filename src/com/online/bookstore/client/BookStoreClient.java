@@ -2,8 +2,6 @@ package com.online.bookstore.client;
 
 import java.util.List;
 
-
-import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,7 +11,6 @@ import com.online.bookstore.model.order.Order;
 import com.online.bookstore.model.order.OrderDetail;
 import com.online.bookstore.model.payment.Payment;
 import com.online.bookstore.model.product.Book;
-import com.online.bookstore.model.product.Product;
 import com.online.bookstore.model.service.CustomerService;
 
 public class BookStoreClient {
@@ -40,12 +37,15 @@ public class BookStoreClient {
 	        billingAddress.setCity("Chicago");
 	        billingAddress.setState("IL");
 	        billingAddress.setZip("66610");	   
-	        
-	        System.out.print("TEST");
-	        
+	        	        
 	        /**********************************************************************/
 	        //Bootstrapping the Order instantiation using factory
+	        
+	        Payment payment = (Payment) context.getBean("payment");
+
 	        Order order1 = (Order) context.getBean("order");
+	        
+	        order1.setPayment(payment);
 	        
 	        order1.setOrderId("XX-66734");
 
@@ -100,7 +100,6 @@ public class BookStoreClient {
 	        	System.out.println("\n\t" +"+++++++++++++++++++++++++++++++++");
 	        	System.out.println("\tOrder Id: \t\t" + order.getOrderId() + "\n");
 	        	System.out.println("\tOrder status: \t\t" + order.getOrderState() + "\n");
-	        	System.out.println("\tOrder payment: \t\t" + order.getPaymentStatus());
 
 	        	System.out.println("\tOrder Items: ");
 	        	List<OrderDetail> orderLines = order.getOrderDetails();

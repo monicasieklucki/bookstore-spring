@@ -1,9 +1,7 @@
 package com.online.bookstore.model.customer;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import com.online.bookstore.model.customer.Address;
 import com.online.bookstore.model.order.Order;
 
 

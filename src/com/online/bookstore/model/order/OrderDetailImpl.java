@@ -1,7 +1,6 @@
 package com.online.bookstore.model.order;
 
 import com.online.bookstore.model.product.Book;
-import com.online.bookstore.model.product.Product;
 
 public class OrderDetailImpl implements OrderDetail {
 	private Book book;
